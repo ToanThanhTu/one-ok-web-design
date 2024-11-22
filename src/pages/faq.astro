@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FAQContent from "../components/FAQContent";
+---
+
+<BaseLayout title="FAQ">
+  <main>
+    <h1>FAQ</h1>
+
+    <h2>Frequently Asked Questions</h2>
+    <p>Browse our FAQ page for answers to everything you would like to know about what we do, what we charge, our process, and how everything works.</p>
+
+    <FAQContent client:load />
+  </main>
+</BaseLayout>

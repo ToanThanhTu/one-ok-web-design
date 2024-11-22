@@ -1,0 +1,13 @@
+---
+import { Image } from "astro:assets";
+import type { Project } from "../types";
+
+const project: Project = Astro.props.project;
+---
+
+<div>
+  <Image src={project.image} alt={project.alt} />
+  <h2>{project.header}</h2>
+  <p>{project.description}</p>
+  <a href={project.url}>Visit Website</a>
+</div>

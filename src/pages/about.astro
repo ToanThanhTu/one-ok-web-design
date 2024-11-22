@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import trevor from "../assets/trevor.png";
+import operaHouse from "../assets/opera-house.png";
+import { Button } from "@material-tailwind/react";
+import { processSteps, teamMembers } from "../data/about";
+import ProcessStepCard from "../components/ProcessStepCard";
+import TeamMemberCard from "../components/TeamMemberCard.astro";
+---
+
+<BaseLayout title="About Us">
+  <main>
+    <h1>About One Ok Web Design</h1>
+
+    <section>
+      <div>
+        <Image src={trevor} alt="Trevor Photo" height={200} />
+        <Image src={operaHouse} alt="Sydney Opera House Image" height={200} />
+      </div>
+
+      <div>
+        <h2>We Make Websites With Purpose & Intent</h2>
+        <p>
+          My name is Ryan, I am the owner and lead developer of Oak Harbor Web
+          Designs. I got into programming after my wife had our first child. I
+          was and still am a stay-at-home dad, and I wanted a career that I can
+          do from home and still be there with the kids to watch them grow up.
+          So over the course of two years I taught myself how to code websites
+          the right way by hand and just started calling small businesses to
+          offer my help and have been growing every year since 2019.
+        </p>
+        <p>
+          What I found was that a lot of small businesses don't have the funds
+          to spend thousands of dollars upfront on a new website. And the ones
+          that did, got taken advantage of and have a terrible website that
+          looks like it was built by someone in a dungeon and haven't seen
+          design trends for the last 10 years. They were in a frustrating spot -
+          they either can't afford a good website, and if they can they don't
+          know who to trust to make something great. So I tweaked my business
+          model to fit their needs. That's how I came up with my $0 down and
+          $175 a month model. It's more manageable for a small business to
+          handle and won't hurt their bank accounts.
+        </p>
+
+        <Button className="uppercase">Call Us Today</Button>
+      </div>
+    </section>
+
+    <section>
+      <h3>Our Working Process</h3>
+      <h2>We Take Care Of Everything</h2>
+      <p>
+        After a contract is signed we send a small questionnaire about your
+        business and what you offer, then we expand on that content and write
+        the entire site’s content for you, create the design, get approval, then
+        we build. Generally takes 2-3 weeks from start to finish.
+      </p>
+
+      <div>
+        {processSteps.map((s) => <ProcessStepCard step={s} />)}
+      </div>
+    </section>
+
+    <section>
+      <h3>Our Team</h3>
+      <h2>Meet The Team Behind One OK Web Design</h2>
+      <p>
+        Every team member has extensive experience, knowledge, and skills in
+        their respective fields that have been honed and perfected over many
+        years. This ensures that every part of your website is done right and by
+        someone who knows those parts inside and out.
+      </p>
+
+      <div>
+        {teamMembers.map(m => <TeamMemberCard teamMember={m} />)}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

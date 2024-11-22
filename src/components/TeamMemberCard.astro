@@ -1,0 +1,13 @@
+---
+import { Image } from "astro:assets";
+import type { TeamMember } from "../types";
+
+const teamMember: TeamMember = Astro.props.teamMember;
+---
+
+<div>
+  <Image src={teamMember.image} alt={`${teamMember.name} photo`} height={100} />
+  <h2>{teamMember.name}</h2>
+  <p>{teamMember.role}</p>
+  <a href={teamMember.url}>LinkedIn</a>
+</div>

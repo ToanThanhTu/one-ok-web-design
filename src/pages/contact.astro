@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm";
+import { info } from "../data/info";
+import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
+---
+
+<BaseLayout title="Contact">
+  <main>
+    <h1>Contact Us</h1>
+
+    <div>
+      <h3>Contact Us</h3>
+      <h2>Get In Touch</h2>
+      <p>
+        Send us an email and let us know everything you want out of a new site.
+        We respond to everyone within 24 hours of contacting us. Or give us a
+        call and reach us immediately for a chat. If we are unavailable we will
+        call back same day.
+      </p>
+
+      <div>
+        <div>
+          <PhoneOutlinedIcon />
+
+          <div>
+            <h4>Phone</h4>
+            <p><a href={`tel:${info.phoneValue}`}>{info.phoneDisplay}</a></p>
+          </div>
+        </div>
+        <div>
+          <EmailOutlinedIcon />
+
+          <div>
+            <h4>Email</h4>
+            <p><a href={`mailto:${info.email}`}>{info.email}</a></p>
+          </div>
+        </div>
+        <div>
+          <PlaceOutlinedIcon />
+
+          <div>
+            <h4>Address</h4>
+            <p>{info.location}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <ContactForm client:load />
+    </div>
+  </main>
+</BaseLayout>

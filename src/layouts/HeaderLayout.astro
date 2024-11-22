@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import DarkModeSwitch from "../components/DarkModeSwitch";
+import Menu from "../components/Menu";
+import {Button} from "@material-tailwind/react";
+import logo from "../../public/favicon.svg";
+---
+
+<header id="nav" class="m-4 rounded shadow-lg transition duration-1000 ease-in-out">
+  <div class="lg:flex hidden justify-between items-center max-w-screen-2xl p-6 m-auto">
+    <Image src={logo} alt="Logo" width={150} />
+    <nav>
+      <Menu />
+    </nav>
+    <div class="flex items-center gap-4">
+      <Button as="a" href="/contact" target="_blank">Get Started</Button>
+      <DarkModeSwitch client:load />
+    </div>
+  </div>
+
+  <div
+    class="lg:hidden flex w-full justify-between items-center p-4 shadow-lg"
+  >
+    <div class="flex justify-start">
+      <Image src={logo} alt="Logo" width={100}  />
+    </div>
+
+    <div class="flex gap-6 items-center">
+      <DarkModeSwitch client:load />
+      <Menu client:load />
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("scroll", function() {
+      const element = document.getElementById("nav");
+      if (element && window.scrollY > 10) {
+        element.classList.remove("m-4", "rounded");
+        element.classList.add("w-screen", "fixed");
+      } else if (element) {
+        element.classList.add("m-4", "rounded");
+        element.classList.remove("w-screen", "fixed");
+      }
+    });
+  </script>
+</header>

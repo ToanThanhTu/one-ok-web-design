@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GetStartedButton from "../components/GetStartedButton";
+import PricingCard from "../components/PricingCard";
+import { pricingPackage } from "../data/pricing";
+---
+
+<BaseLayout title="Pricing">
+  <main>
+    <h1>Pricing</h1>
+
+    <div>
+      <div>
+        <h3>Our Pricing</h3>
+        <h2>Pricing Packages For Every Budget</h2>
+      </div>
+
+      <GetStartedButton />
+    </div>
+
+    <div>
+      {pricingPackage.map((p) => <PricingCard pricingPackage={p} />)}
+    </div>
+  </main>
+</BaseLayout>
