@@ -1,13 +1,13 @@
 export type DarkMode = "dark" | "light";
 
-export interface Feature {
+export interface DevelopmentFeature {
   id: string;
   header: string;
   description: string;
   url: string;
 }
 
-export interface Offer {
+export interface BusinessAttribute {
   header: string;
   description: string;
 }

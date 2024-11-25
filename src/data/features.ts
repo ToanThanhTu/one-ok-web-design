@@ -1,6 +1,6 @@
-import type { Feature, Offer } from "../types";
+import type { DevelopmentFeature, BusinessAttribute } from "../types";
 
-export const features: Feature[] = [
+export const developmentFeatures: DevelopmentFeature[] = [
   {
     id: "1",
     header: "Mobile First Design",
@@ -27,7 +27,7 @@ export const features: Feature[] = [
   },
 ]
 
-export const offers: Offer[] = [
+export const businessAttributes: BusinessAttribute[] = [
   {
     header: "100% Secure",
     description: "Our sites are just static HTML and CSS code, meaning there is literally nothing that can be hacked.",

@@ -5,19 +5,19 @@ import WhereToVoteIcon from "@mui/icons-material/WhereToVote";
 
 function FeatureCardIcon({ featureId }: { featureId: string }) {
   if (featureId === "1") {
-    return <MobileFriendlyIcon />;
+    return <MobileFriendlyIcon fontSize="large" />;
   }
 
   if (featureId === "2") {
-    return <DevicesIcon />;
+    return <DevicesIcon fontSize="large" />;
   }
 
   if (featureId === "3") {
-    return <SpeedIcon />;
+    return <SpeedIcon fontSize="large" />;
   }
 
   if (featureId === "4") {
-    return <WhereToVoteIcon />;
+    return <WhereToVoteIcon fontSize="large" />;
   }
 
   return <div>Feature not found</div>;

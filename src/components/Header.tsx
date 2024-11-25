@@ -8,14 +8,14 @@ function Header() {
     const handleScroll = () => {
       const nav = document.getElementById("nav");
       const header = document.getElementById("header");
-      if (nav && header && window.scrollY > 10) {
+      if (nav && header && window.scrollY > 50) {
         nav.classList.add("w-screen");
-        nav.classList.remove("w-11/12", "rounded", "top-4");
+        nav.classList.remove("w-11/12", "rounded-lg", "top-4");
 
         header.classList.add("top-0");
         header.classList.remove("top-6");
       } else if (nav && header) {
-        nav.classList.add("w-11/12", "top-4", "rounded");
+        nav.classList.add("w-11/12", "top-4", "rounded-lg");
         nav.classList.remove("w-screen");
 
         header.classList.add("top-6");
@@ -28,11 +28,12 @@ function Header() {
   }, []);
 
   return (
-    <header id="header" className="w-screen fixed top-6 transition-all duration-300 ease-linear">
+    <header id="header" className="w-screen fixed top-6 transition-all duration-300 ease-linear z-40">
       <nav
         id="nav"
         className="w-11/12 m-auto rounded shadow-lg transition-all duration-300 ease-linear bg-white"
       >
+        {/* Nav for large screens */}
         <div className="lg:flex hidden justify-between items-center max-w-screen-2xl p-6 m-auto">
           <img src="../../favicon.svg" alt="Logo" width={150} />
           <div>
@@ -46,6 +47,7 @@ function Header() {
           </div>
         </div>
 
+        {/* Nav for small screens */}
         <div className="lg:hidden flex w-full justify-between items-center p-4 shadow-lg">
           <div className="flex justify-start">
             <img src="../../favicon.svg" alt="Logo" width={100} />

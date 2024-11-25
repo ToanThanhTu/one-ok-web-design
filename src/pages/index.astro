@@ -3,31 +3,45 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HourglassBottomIcon from "@mui/icons-material/HourglassBottom";
 import AddReactionIcon from "@mui/icons-material/AddReaction";
 import DevicesIcon from "@mui/icons-material/Devices";
-import { features, offers } from "../data/features";
+import { developmentFeatures, businessAttributes } from "../data/features";
 import { projects } from "../data/portfolio";
 import FeatureCard from "../components/FeatureCard";
-import BeenhereIcon from "@mui/icons-material/Beenhere";
 import ProjectCard from "../components/ProjectCard.astro";
+import BusinessAttributeCard from "../components/BusinessAttributeCard";
+import laptopImage from "../assets/home/laptop.png";
+import performanceImage from "../assets/home/performance-stats.png";
+import { Image } from "astro:assets";
+import { Button } from "@material-tailwind/react";
 ---
 
 <BaseLayout title="Welcome">
   <main>
-    <section>
-      <h2>Custom Designs, Custom Coded</h2>
-      <h1>Small Business Web Designer</h1>
-      <p>
+    <section class="text-center">
+      <h2 class="uppercase text-sm font-semibold">
+        Custom Designs, Custom Coded
+      </h2>
+      <h1 class="uppercase text-4xl font-bold">Small Business Web Designer</h1>
+
+      <p class="py-6">
         No page builders or WordPress. We offer 100% hand-coded websites with
         superior results starting at $175/mo as well as Google Ads and SEO
         services.
       </p>
-      <button>Get Started</button>
-      <a href="/about">About Us</a>
+
+      <div>
+        <Button as="a" href="/contact">Get Started</Button>
+        <Button as="a" href="/about" variant="ghost">About Us</Button>
+      </div>
+
+      <Image src={laptopImage} alt="Laptop Image" class="py-10" />
     </section>
 
-    <section>
-      <h2>What We Do</h2>
-      <h1>Never Worry About Your Website Ever Again</h1>
-      <p>
+    <section class="text-center pt-10 border-t-2">
+      <h2 class="uppercase text-sm font-semibold">What We Do</h2>
+      <h1 class="uppercase text-2xl font-bold">
+        Never Worry About Your Website Ever Again
+      </h1>
+      <p class="py-6">
         At Oak Harbor Web Designs, we specialize in small business web design
         and development for clients anywhere in the US and Canada. Every line of
         code is written by hand to ensure the best performance and make Google
@@ -39,82 +53,109 @@ import ProjectCard from "../components/ProjectCard.astro";
     </section>
 
     <section>
-      {features.map((f) => <FeatureCard feature={f} />)}
+      {developmentFeatures.map((f) => <FeatureCard feature={f} />)}
     </section>
 
     <section>
-      <h3>What We Offer</h3>
-      <h1>Websites Starting At $0 Down And $175 Per Month</h1>
-      <p>
+      <h3 class="uppercase text-sm font-semibold">What We Offer</h3>
+      <h1 class="uppercase text-2xl font-bold">
+        Websites Starting At $0 Down And $175 Per Month
+      </h1>
+      <p class="my-4">
         We offer $0 down for a standard 5 page small business website. If you
         need more than that then we have to do custom pricing based on the scope
-        of work, number of additional pages, and time involved. 12 month minimum
-        contract. Includes design, development, hosting, unlimited edits, 24/7
-        support, and lifetime updates.
+        of work, number of additional pages, and time involved. <strong
+          >12 month minimum contract</strong
+        >. Includes design, development, hosting, unlimited edits, 24/7 support,
+        and lifetime updates.
       </p>
-      {
-        offers.map((o) => (
-          <div>
-            <BeenhereIcon />
-            <h2>{o.header}</h2>
-            <p>{o.description}</p>
-          </div>
-        ))
-      }
+      {businessAttributes.map((a) => <BusinessAttributeCard attribute={a} />)}
     </section>
 
-    <a href="/contact">Reach Out To Us Today</a>
+    <Button as="a" href="/contact">Reach Out To Us Today</Button>
 
-    <section>
-      <h3>Portfolio</h3>
-      <h1>Some Of The Work We’ve Done Over The Years</h1>
-      <p>
-        We have worked with clients all over the US and Canada for home services
-        contractors, restaurants, consulting agencies, start ups,
-        dermatologists, doctors, accountants, and more. No matter what your
-        business is, we can build a website that is effective, beautiful,
-        performant, and tailored to your industry.
-      </p>
-
+    <section class="mt-10 py-12 bg-gray-100 -mx-4 p-4">
       <div>
+        <div>
+          <h3 class="uppercase text-sm font-semibold">Portfolio</h3>
+          <h1 class="uppercase text-2xl font-bold">Some Of The Work We’ve Done Over The Years</h1>
+        </div>
+        
+        <p class="py-6 border-b-2">
+          We have worked with clients all over the US and Canada for home services
+          contractors, restaurants, consulting agencies, start ups,
+          dermatologists, doctors, accountants, and more. No matter what your
+          business is, we can build a website that is effective, beautiful,
+          performant, and tailored to your industry.
+        </p>
+      </div>
+      
+      <div class="mt-12">
         {projects.map((p) => <ProjectCard project={p} />)}
       </div>
     </section>
 
-    <section>
+    <section class="bg-blue-950 -mx-4 px-4 py-12 text-white">
       <div>
-        <h3>Performance</h3>
-        <h1>We Build Better Websites That Perform</h1>
-        <p>
+        <div class="flex justify-between item-centers">
+          <div>
+            <h2 class="text-4xl font-bold">100%</h2>
+            <p>Satisfaction Guaranteed</p>
+          </div>
+
+          <div>
+            <h2 class="text-4xl font-bold">100</h2>
+            <p>Page Speed Scores</p>
+          </div>
+
+          <div>
+            <h2 class="text-4xl font-bold">5/5</h2>
+            <p>Google Reviews</p>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-xl my-8">
+          <Image src={performanceImage} alt="Performance Stats Image" class="scale-125" />
+        </div>
+      </div>
+
+      <div>
+        <h3 class="uppercase font-semibold">Performance</h3>
+        <h1 class="uppercase font-bold text-2xl">We Build Better Websites That Perform</h1>
+        <p class="py-8">
           When it comes to website load times, not very many can get the Google
           PageSpeed scores that we get with each and every site. Test your
           website load times with Google PageSpeed Insights and see what your
           current site is scoring right now.
         </p>
-        <div>
-          <HourglassBottomIcon />
-          <p>
-            Better load times means more traffic and more site conversions over
-            time.
-          </p>
+
+        <div class="flex flex-col gap-6 font-bold">
+          <div class="flex items-center gap-4">
+            <HourglassBottomIcon fontSize="large" />
+            <p>
+              Better load times means more traffic and more site conversions over
+              time.
+            </p>
+          </div>
+          <div class="flex items-center gap-4">
+            <AddReactionIcon fontSize="large" />
+            <p>
+              Faster websites can help improve SEO and your Google ads
+              performance.
+            </p>
+          </div>
+          <div class="flex items-center gap-4">
+            <DevicesIcon fontSize="large" />
+            <p>
+              Our sites load instantly in under 1 second or less, which leads to a
+              better user experience and conversions.
+            </p>
+          </div>
         </div>
-        <div>
-          <AddReactionIcon />
-          <p>
-            Faster websites can help improve SEO and your Google ads
-            performance.
-          </p>
-        </div>
-        <div>
-          <DevicesIcon />
-          <p>
-            Our sites load instantly in under 1 second or less, which leads to a
-            better user experience and conversions.
-          </p>
-        </div>
-        <div>
-          <a href="/pricing">See Our Pricing</a>
-          <a href="/contact">Get Started Today</a>
+        
+        <div class="mt-8">          
+          <Button as="a" href="/contact">Get Started Today</Button>
+          <Button as="a" href="/pricing">See Our Pricing</Button>
         </div>
       </div>
     </section>

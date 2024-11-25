@@ -1,13 +1,14 @@
 ---
 import { Image } from "astro:assets";
 import type { Project } from "../types";
+import { Button } from "@material-tailwind/react";
 
 const project: Project = Astro.props.project;
 ---
 
-<div>
-  <Image src={project.image} alt={project.alt} />
-  <h2>{project.header}</h2>
-  <p>{project.description}</p>
-  <a href={project.url}>Visit Website</a>
+<div class="mt-12">
+  <Image src={project.image} alt={project.alt} width={300} class="my-6 m-auto" />
+  <h2 class="uppercase text-xl font-bold">{project.header}</h2>
+  <p class="py-2">{project.description}</p>
+  <Button as="a" href={project.url} target="_blank" className="mt-6">Visit Website</Button>
 </div>

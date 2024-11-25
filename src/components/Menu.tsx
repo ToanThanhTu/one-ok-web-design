@@ -26,8 +26,10 @@ function Menu() {
 
   return (
     <div>
-      <div className="lg:flex hidden">{menuItems()}</div>
+      {/* Menu for large screens */}
+      <div className="lg:flex hidden gap-8">{menuItems()}</div>
 
+      {/* Menu for small screens */}
       <div className="lg:hidden flex">
         {!showMenu && (
           <div>
@@ -38,8 +40,8 @@ function Menu() {
         )}
 
         {showMenu && (
-          <div className="absolute top-0 left-0 w-screen h-screen bg-gray-900 z-98">
-            <div className="z-99 absolute right-0 p-3">
+          <div className="fixed top-0 left-0 w-screen h-dvh overflow-hidden bg-gray-900 z-40">
+            <div className="z-50 absolute right-0 p-8">
               <button onClick={onClose}>
                 <CloseIcon fontSize="large" sx={{ color: "white" }} />
               </button>
